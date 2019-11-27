@@ -1,0 +1,1857 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='full_outside_wall'>
+      <link name='link'>
+        <inertial>
+          <mass>50</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <visual name='x00_13y00_bottom_frame'>
+          <pose frame=''>5.0375 -0.0275 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10.185 0.055 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x00_13y00_collision_bottom_frame'>
+          <pose frame=''>5.0375 -0.0275 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10.185 0.055 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall_x00_13y00'>
+          <pose frame=''>5.0375 -0.0275 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10.185 0.055 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='wall_x00_13y00'>
+          <pose frame=''>5.0375 -0.002 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10.08 0.055 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x00y00_15_bottom_frame'>
+          <pose frame=''>-0.0275 6.59 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 13.29 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x00y00_15_collision_bottom_frame'>
+          <pose frame=''>-0.0275 6.59 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 13.29 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall_x00y00_15'>
+          <pose frame=''>-0.0275 6.59 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 13.29 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='wall_x00y00_x00y15'>
+          <pose frame=''>-0.002 6.59 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.002 13.29 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x13y00_12_bottom_frame'>
+          <pose frame=''>10.1025 5.3725 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 10.855 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x13y00_12_collision_bottom_frame'>
+          <pose frame=''>10.1025 5.3725 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 10.855 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall_x13y00_12'>
+          <pose frame=''>10.1025 5.3725 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 10.855 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='wall_x13y00_12'>
+          <pose frame=''>10.1025 5.3725 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 10.855 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x13y14_16_bottom_frame'>
+          <pose frame=''>10.1025 12.4675 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.535 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x13y14_16_collision_bottom_frame'>
+          <pose frame=''>10.1025 12.4675 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.535 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall_x13y14_x13y16'>
+          <pose frame=''>10.1025 12.4675 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.535 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='wall_x13y14_x13y16'>
+          <pose frame=''>10.1025 12.4675 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.535 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x00_01y16_bottom_frame'>
+          <pose frame=''>0.4225 13.2075 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.955 0.055 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x00_01y16_collision_bottom_frame'>
+          <pose frame=''>0.4225 13.2075 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.955 0.055 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall_x00_01y16'>
+          <pose frame=''>0.4225 13.2075 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.955 0.055 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='wall_x00_x01y16'>
+          <pose frame=''>0.4225 13.2075 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.955 0.055 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x03_13y16_bottom_frame'>
+          <pose frame=''>5.965 13.2075 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.33 0.05 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x03_13y16_collision_bottom_frame'>
+          <pose frame=''>5.965 13.2075 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.33 0.05 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall_x03_13y16'>
+          <pose frame=''>5.965 13.2075 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.33 0.055 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='wall_x03_13y16'>
+          <pose frame=''>5.965 13.2075 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.33 0.055 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <pose frame=''>-4.02009 -6.56494 0 0 -0 0</pose>
+    </model>
+    <model name='full_inside_wall'>
+      <link name='link'>
+        <inertial>
+          <mass>50</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <visual name='x05y01_08_bottom_frame'>
+          <pose frame=''>4.075 3.215 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 6.43 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x05y01_08_collision_bottom_frame'>
+          <pose frame=''>4.075 3.215 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 6.43 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x05y01_08_wall'>
+          <pose frame=''>4.075 3.215 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 6.43 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x05y01_08_collision_wall'>
+          <pose frame=''>4.075 3.215 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 6.43 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x05y10_bottom_frame'>
+          <pose frame=''>4.075 7.78 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x05y10_collision_bottom_frame'>
+          <pose frame=''>4.075 7.78 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x05y10_wall'>
+          <pose frame=''>4.075 7.78 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x05y10_collision_wall'>
+          <pose frame=''>4.075 7.78 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x01_02_y09_bottom_frame'>
+          <pose frame=''>0.55 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x01_02_y09_collision_bottom_frame'>
+          <pose frame=''>0.55 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x01_02_y09_wall'>
+          <pose frame=''>0.55 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.1 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x01_02_y09_collision_wall'>
+          <pose frame=''>0.55 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.1 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x04_07_y09_bottom_frame'>
+          <pose frame=''>3.42 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.44 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x04_07_y09_collision_bottom_frame'>
+          <pose frame=''>3.42 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.44 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x04_07_y09_wall'>
+          <pose frame=''>3.42 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.44 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x04_07_y09_collision_wall'>
+          <pose frame=''>3.42 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.44 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y10a_bottom_frame'>
+          <pose frame=''>5.9925 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y10a_collision_bottom_frame'>
+          <pose frame=''>5.9925 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y10a_wall'>
+          <pose frame=''>5.9925 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y10a_collision_wall'>
+          <pose frame=''>5.9925 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y10a_bottom_frame'>
+          <pose frame=''>5.9925 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y10a_collision_bottom_frame'>
+          <pose frame=''>5.9925 8.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y10a_wall'>
+          <pose frame=''>5.9925 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y10a_collision_wall'>
+          <pose frame=''>5.9925 8.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.9 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y14_15_bottom_frame'>
+          <pose frame=''>6.47 12.54 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.28 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y14_15_collision_bottom_frame'>
+          <pose frame=''>6.47 12.54 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.28 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y14_15_wall'>
+          <pose frame=''>6.47 12.54 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.28 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y14_15_collision_wall'>
+          <pose frame=''>6.47 12.54 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.28 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y10b_12_bottom_frame'>
+          <pose frame=''>6.47 9.52875 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.5425 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y10b_12_collision_bottom_frame'>
+          <pose frame=''>6.47 9.52875 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.5425 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08y10b_12_wall'>
+          <pose frame=''>6.47 9.52875 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.5425 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08y10b_12_collision_wall'>
+          <pose frame=''>6.47 9.52875 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 2.5425 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08_09y11b_bottom_frame'>
+          <pose frame=''>7.284 9.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.632 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08_09y11b_collision_bottom_frame'>
+          <pose frame=''>7.284 9.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.632 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x08_09y11b_wall'>
+          <pose frame=''>7.284 9.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.632 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x08_09y11b_collision_wall'>
+          <pose frame=''>7.284 9.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.632 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x11_12y11_bottom_frame'>
+          <pose frame=''>9.5375 9.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.075 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x11_12y11_collision_bottom_frame'>
+          <pose frame=''>9.5375 9.23 0.05 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.075 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='x11_12y11_wall'>
+          <pose frame=''>9.5375 9.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.075 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='x11_12y11_collision_wall'>
+          <pose frame=''>9.5375 9.23 1.095 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.075 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <pose frame=''>-3.98947 -6.578 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>1201 7000000</sim_time>
+      <real_time>95 966894785</real_time>
+      <wall_time>1538402485 718960686</wall_time>
+      <iterations>95795</iterations>
+      <model name='full_inside_wall'>
+        <pose frame=''>8.33769 1.33864 0 0 -0 3.14132</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>8.33769 1.33864 0 0 -0 3.14132</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='full_outside_wall'>
+        <pose frame=''>-1.74055 -11.8334 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-1.74055 -11.8334 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='full_wall_55_920_2090'>
+        <pose frame=''>8.36232 -0.582065 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>8.36232 -0.582065 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='full_wall_55_920_2090_0'>
+        <pose frame=''>-0.391738 1.37269 0 0 -0 1.5726</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-0.391738 1.37269 0 0 -0 1.5726</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='static_box_2'>
+        <pose frame=''>6.05243 -3.06073 0.499994 5e-06 1e-05 2.4e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>6.05243 -3.06073 0.499994 5e-06 1e-05 2.4e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-1.46838 0.136876 -8.32096 1.62496 0.045593 -2.4827</acceleration>
+          <wrench>-146.838 13.6876 -832.096 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='static_box_3'>
+        <pose frame=''>1.00509 -3.5168 0.499993 0 9e-06 0.002576</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>1.00509 -3.5168 0.499993 0 9e-06 0.002576</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.100389 2.51363 4.73347 2.24035 0.527861 -0.513896</acceleration>
+          <wrench>10.0389 251.363 473.347 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='static_box_4'>
+        <pose frame=''>4.98839 -8.99638 0.499993 -0 -1.2e-05 0.002175</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>4.98839 -8.99638 0.499993 -0 -1.2e-05 0.002175</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>1.804 -0.062314 -7.98279 2.98637 -0.846537 3.0297</acceleration>
+          <wrench>180.4 -6.23136 -798.279 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <model name='static_box_2'>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+            <ambient>0.3 0.3 1 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <shader type='vertex'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <gravity>1</gravity>
+      </link>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>6.05239 -3.06063 0.499993 1.2e-05 -0 -4.4e-05</pose>
+    </model>
+    <model name='static_box_3'>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+            <ambient>0.3 0.3 1 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <shader type='vertex'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <gravity>1</gravity>
+      </link>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>0.777928 -3.18809 0 0 -0 0</pose>
+    </model>
+    <model name='static_box_4'>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+            <ambient>0.3 0.3 1 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <shader type='vertex'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <gravity>1</gravity>
+      </link>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>4.99013 -8.99277 0 0 -0 0</pose>
+    </model>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-0.600172 0.79141 2.9843 0 0.969797 1.06588</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='full_wall_55_920_2090'>
+      <link name='link'>
+        <inertial>
+          <mass>50</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <visual name='bottom_frame'>
+          <pose frame=''>0 0 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision_bottom_frame'>
+          <pose frame=''>0 0 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall'>
+          <pose frame=''>0 0 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision_wall'>
+          <pose frame=''>0 0 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <pose frame=''>8.36232 -0.582065 0 0 -0 0</pose>
+    </model>
+    <model name='full_wall_55_920_2090_0'>
+      <link name='link'>
+        <inertial>
+          <mass>50</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <visual name='bottom_frame'>
+          <pose frame=''>0 0 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/color/scripts</uri>
+              <name>hsr_color/white</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision_bottom_frame'>
+          <pose frame=''>0 0 0.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='wall'>
+          <pose frame=''>0 0 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 1.99</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://base_materials/wall/scripts</uri>
+              <uri>model://base_materials/wall/textures</uri>
+              <name>wall/white_noise</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision_wall'>
+          <pose frame=''>0 0 1.095 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 0.92 1.99</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <pose frame=''>-0.46055 1.6914 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>

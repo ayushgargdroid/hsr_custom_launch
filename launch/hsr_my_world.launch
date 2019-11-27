@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="use_manipulation" default="false" />
+  <arg name="use_task" default="false" />
+  <arg name="use_perception" default="false" />
+  <arg name="fast_physics" default="true" />
+  <include file="$(find hsrb_gazebo_launch)/launch/include/hsrb_gazebo_common.xml" >
+    <arg name="map" value="$(find hsr_custom_launch)worlds/hsr_my_world/map.yaml" />
+    <arg name="world_name" value="$(find hsr_custom_launch)/worlds/hsr_my_world/hsr_my_world.world" />
+    <arg name="robot_pos" value="-x 0 -y 0 -z 0 -Y 0" />
+    <arg name="use_laser_odom" value="false" />
+  </include>
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam">
+    <remap from="scan" to="hsrb/base_scan" />
+    <param name="temporalUpdate" value="0.5" />
+  </node>
+
+  <node pkg="hsr_custom_launch" type="global_pose_publisher" name="global_pose_publisher" />
+
+</launch>
