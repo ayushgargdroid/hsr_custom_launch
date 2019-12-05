@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(hsr_custom_launch)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -12,6 +12,11 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   geometry_msgs
   nav_msgs
+  interactive_markers
+  moveit_core
+  moveit_visual_tools
+  moveit_ros_planning
+  moveit_ros_planning_interface
 )
 
 ## System dependencies are found with CMake's conventions
@@ -135,6 +140,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(global_pose_publisher src/globalPose.cpp)
+add_executable(grasp src/moveit_grasp.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -151,6 +157,9 @@ target_link_libraries(global_pose_publisher
   ${catkin_LIBRARIES}
 )
 
+target_link_libraries(grasp
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
